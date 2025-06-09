@@ -20,6 +20,21 @@ Clone this repository and run:
 swift build -c release
 ```
 
+### Windows notes
+
+Swift packages that depend on [SwiftNIO](https://github.com/apple/swift-nio) use
+symlinks in their test data. If `swift build` fails while fetching the
+dependency with an error about creating a symlink, disable symlink checkout for
+this repository:
+
+```bash
+git -C matter_connect config core.symlinks false
+swift package resolve
+```
+
+Alternatively, enable Developer Mode in Windows settings or run a terminal with
+administrator privileges so symlinks can be created.
+
 ## Running
 
 Launch the executable with:
